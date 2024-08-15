@@ -23,12 +23,17 @@ Autoregressive models generate speech output sequentially, where each generated 
 - **Tacotron 2**: A widely used model that generates mel-spectrograms from text, followed by a vocoder like WaveNet to produce waveforms. [Reference: Wang et al., 2017](https://arxiv.org/abs/1712.05884)
 - **WaveNet**: A powerful autoregressive vocoder that generates high-fidelity audio samples. [Reference: van den Oord et al., 2016](https://arxiv.org/abs/1609.03499)
 
+| Model traning and evaluation of Tacotron 2 model on LJ-Speech data: [Code](https://huggingface.co/speechbrain/tts-tacotron2-ljspeech)
+
 ### Non-Autoregressive TTS Models
 Non-autoregressive models generate all output frames simultaneously, removing the sequential dependency of autoregressive models. This approach significantly accelerates inference speed and reduces latency, making these models suitable for real-time applications. However, non-autoregressive models can struggle with maintaining natural prosody and may require additional mechanisms to improve expressiveness.
 
 #### Examples of Non-Autoregressive Models:
 - **FastSpeech 2**: A model that directly predicts the entire sequence of mel-spectrogram frames in parallel, offering fast and high-quality speech synthesis. [Reference: Ren et al., 2020](https://arxiv.org/abs/2006.04558)
 - **Parallel WaveGAN**: A non-autoregressive GAN-based vocoder designed for efficient waveform generation. [Reference: Yamamoto et al., 2020](https://arxiv.org/abs/1910.11480)
+
+| Model traning and evaluation of FastSpeech 2 model on LJ-Speech data: [Code](https://espnet.github.io/espnet-tts-sample/egs/ljspeech/fastspeech.v2/)
+
 
 ### Comparative Analysis
 | **Aspect**                 | **Autoregressive Models**                | **Non-Autoregressive Models**                |
@@ -44,9 +49,9 @@ Non-autoregressive models generate all output frames simultaneously, removing th
 Evaluating TTS models involves both qualitative and quantitative assessments. Some key evaluation methods are:
 
 ### Quantitative Evaluation Metrics
-- **Mean Opinion Score (MOS)**: A subjective evaluation metric where human listeners rate the quality of synthesized speech on a scale from 1 to 5.
-- **Mel Cepstral Distortion (MCD)**: A metric to measure the difference between generated and reference mel-spectrograms.
-- **Perceptual Evaluation of Speech Quality (PESQ)**: An objective measure to assess the audio quality of synthesized speech.
+- **Mean Opinion Score (MOS)**: A subjective evaluation metric where human listeners rate the quality of synthesized speech on a scale from 1 to 5. [code](https://pypi.org/project/mean-opinion-score/)
+- **Mel Cepstral Distortion (MCD)**: A metric to measure the difference between generated and reference mel-spectrograms. [code](https://github.com/MattShannon/mcd)
+- **Perceptual Evaluation of Speech Quality (PESQ)**: An objective measure to assess the audio quality of synthesized speech. [code](https://lightning.ai/docs/torchmetrics/stable/audio/perceptual_evaluation_speech_quality.html)
 
 ### Qualitative Evaluation
 - **Listening Tests**: Human evaluators assess the naturalness, intelligibility, and expressiveness of synthesized speech.
